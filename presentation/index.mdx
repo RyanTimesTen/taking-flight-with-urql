@@ -1,0 +1,208 @@
+import { Cite, Appear } from "spectacle"
+import { WhiteSlide, DarkSlide, CodeSlide } from "./slides"
+import RegularComponent from "./regular-component"
+
+# Taking Flight with URQL
+
+<br />
+
+![urqlbanner](urql-banner.gif)
+
+---
+
+## Agenda
+
+- urql origin story
+- present-day urql
+- DEMO
+
+---
+
+![Formidable](Formidable-Primary.png)
+
+<br />
+
+We're hiring! formidable.com/careers/
+
+**@FormidableLabs**
+
+---
+
+
+this is fine | i'm dying
+:-------------:|:-------------------------:
+![me](me.png)  |  ![suffering](suffering.png)
+
+**@ryan_gilb**
+
+
+---
+
+## what is urql?
+
+
+![poll](poll.png)
+
+---
+
+## GraphQL client landscape
+
+<br />
+
+![apollo-v-relay](apollo-v-relay.png)
+
+---
+
+export default CodeSlide
+
+```json
+"dependencies": {
+    "apollo-cache-inmemory": "^1.1.7",
+    "apollo-client": "^2.2.3",
+    "apollo-link-context": "^1.0.7",
+    "apollo-link-http": "^1.3.3",
+    "expo": "^25.0.0",
+    "graphql": "^0.12.0",
+    "graphql-tag": "^2.7.3",
+    "react": "16.2.0",
+    "react-apollo": "^2.0.4",
+    "react-native": "0.52.0",
+    "react-native-collapsible": "^0.10.0",
+    "react-native-datepicker": "^1.6.0",
+    "react-native-plaid-link": "^1.3.4",
+    "react-native-swipeout": "^2.3.3",
+    "react-native-user-avatar": "^1.0.3",
+    "react-navigation": "^1.4.0",
+    "watchman": "^1.0.0"
+  }
+```
+
+---
+
+export default CodeSlide
+
+```json
+"dependencies": {
+    "apollo-cache-inmemory": "^1.1.7",
+    "apollo-client": "^2.2.3",
+    "apollo-link-context": "^1.0.7",
+    "apollo-link-http": "^1.3.3",
+    "react-apollo": "^2.0.4",
+  }
+```
+
+---
+
+export default CodeSlide
+
+```javascript
+function getApolloClient() {
+  const JWT = "jwt"
+
+  const httpLink = new HttpLink({
+    uri: `http://${HOST}:8000/graphql`
+  })
+
+  const authLink = setContext(async (_, { headers }) => {
+    const token = await AsyncStorage.getItem(JWT)
+    return {
+      headers: {
+        ...headers,
+        authorization: token ? `Bearer ${token}` : ""
+      }
+    }
+  })
+
+  const client = new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache()
+  })
+
+  return client
+}
+```
+
+---
+
+export default CodeSlide
+
+```javascript
+yarn add urql
+```
+
+---
+
+export default CodeSlide
+
+```js
+// old urql v0.0.1
+'import { Provider, Client } from 'urql';'
+
+const client = new Client({
+  url: '/graphql'
+});
+
+'export const App = () => (
+  <Provider client={client}>
+    {/* ... */}
+  </Provider>
+);'
+```
+
+---
+
+## Evolution of URQL
+
+![urql-v1](v1-release.png)
+
+---
+
+## Compact Bundle Size
+
+<br />
+
+urql | apollo boost | apollo react hooks
+:-------------:|:----------:|:---------------:
+![urql-size](urql-size.png)  | ![apollo-boost-size](apollo-boost-size.png) | ![apollo-react-hooks-size](apollo-react-hooks-size.png)
+
+---
+
+## Features
+
+![urql-features](features.png)
+
+---
+
+## Programmable Core
+
+![exchange](exchange.svg)
+
+---
+
+## Programmable Core
+
+![exchange-chain](exchange-chain.svg)
+
+---
+
+export default WhiteSlide
+
+## Default Exchanges
+
+![default-exchanges](default-exchanges.svg)
+
+---
+
+## Exchanges
+
+![exchanges](exchanges.png)
+
+---
+
+## Graphcache
+
+![graphcache](graphcache.png)
+
+---
+
+# DEMO!!!

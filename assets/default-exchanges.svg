@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 787 410" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>default exchanges</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50.331917%" y1="0%" x2="49.3759924%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#9691A0" offset="0%"></stop>
+            <stop stop-color="#7A7586" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="53.4775427%" y1="0%" x2="43.4621804%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#9691A0" offset="0%"></stop>
+            <stop stop-color="#7A7586" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="52.8833562%" y1="0%" x2="44.5792577%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#9691A0" offset="0%"></stop>
+            <stop stop-color="#7A7586" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="default-exchanges" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill-opacity="0.4" fill="url(#linearGradient-1)" x="166" y="71" width="38" height="301" rx="12"></rect>
+        <rect id="Rectangle" fill-opacity="0.4" fill="url(#linearGradient-2)" x="348" y="71" width="123" height="301" rx="12"></rect>
+        <rect id="Rectangle" fill-opacity="0.4" fill="url(#linearGradient-3)" x="626" y="71" width="112" height="301" rx="12"></rect>
+        <rect id="Rectangle" fill-opacity="0.7" fill="#302C38" x="382" y="175" width="56" height="94" rx="12"></rect>
+        <rect id="Rectangle" fill-opacity="0.7" fill="#292531" x="654" y="175" width="56" height="94" rx="12"></rect>
+        <path id="Line" d="M134,86 L28.5,86 L27,86 L27,83 L28.5,83 L134,83 L134,75 L153,84.5 L134,94 L134,86 Z" fill="#292531" fill-rule="nonzero"></path>
+        <path id="Line" d="M186.504975,93.5049916 L317.005085,93.9385468 L317.031663,85.938591 L335.999997,95.5016611 L316.968541,104.938486 L316.995119,96.9385303 L186.495008,96.5049751 L186.473414,103.004939 L186.46843,104.504931 L183.468447,104.494964 L183.47343,102.994972 L183.526586,86.9950608 L183.53157,85.4950691 L186.531553,85.5050358 L186.52657,87.0050275 L186.504975,93.5049916 Z" fill="#292531" fill-rule="nonzero"></path>
+        <path id="Line" d="M360.50291,93.5029154 L598.002947,93.9640806 L598.018481,85.9640956 L616.999999,95.5009709 L597.981588,104.96406 L597.997122,96.9640749 L360.497085,96.5029098 L360.484463,103.002898 L360.481551,104.502895 L357.481556,104.497069 L357.484469,102.997072 L357.515537,86.9971025 L357.518449,85.4971053 L360.518444,85.5029305 L360.515531,87.0029277 L360.50291,93.5029154 Z" fill="#292531" fill-rule="nonzero"></path>
+        <path id="Line" d="M301.004117,348.051667 L460.054454,348.495817 L460.072605,341.995842 L460.076794,340.495848 L463.076782,340.504226 L463.072593,342.00422 L463.027913,358.004158 L463.023724,359.504152 L460.023736,359.495774 L460.027925,357.99578 L460.046076,351.495805 L300.995739,351.051655 L300.973399,359.051624 L282.000002,349.498604 L301.026457,340.051698 L301.004117,348.051667 Z" fill="#292531" fill-rule="nonzero"></path>
+        <path id="Path" d="M360.516117,93.5254245 C379.574005,93.9644575 391.682236,98.7968664 398.939796,108.599013 C405.326578,117.225076 407.990007,129.260474 408.733875,148.935525 L416.767188,148.834747 L407.506272,167.952421 L397.768683,149.073084 L405.733124,148.97317 C405.006262,129.907871 402.45225,118.38454 396.528738,110.384173 C389.903779,101.436426 378.669668,96.9481261 360.483508,96.5253944 L360.41296,103.015831 L360.396657,104.515742 L357.396834,104.483135 L357.413137,102.983224 L357.58704,86.9841692 L357.603343,85.4842578 L360.603166,85.5168645 L360.586863,87.0167759 L360.516117,93.5254245 Z" fill="#292531" fill-rule="nonzero"></path>
+        <path id="Path" d="M637.5,93.5104923 C656.15601,93.7742061 667.768319,99.0128753 674.385847,109.655536 C679.979008,118.650755 681.99298,130.62966 682.399026,151.493634 L690.418538,151.458167 L681.002659,170.499995 L671.418724,151.542195 L679.398691,151.506903 C679.000217,131.192836 677.054928,119.629494 671.838186,111.239653 C665.82838,101.574362 655.185395,96.7651324 637.5,96.5106688 L637.5,103 L637.5,104.5 L634.5,104.5 L634.5,103 L634.5,87 L634.5,85.5 L637.5,85.5 L637.5,87 L637.5,93.5104923 Z" fill="#292531" fill-rule="nonzero"></path>
+        <path id="Path" d="M301.5,322.5 L342.778988,322.5 C390.208917,322.5 406.5,311.841645 406.5,282 L406.5,280.5 L409.5,280.5 L409.5,282 C409.5,313.831807 391.6654,325.5 342.778988,325.5 L301.5,325.5 L301.5,333.5 L282.5,324 L301.5,314.5 L301.5,322.5 Z" fill="#292531" fill-rule="nonzero"></path>
+        <path id="Path" d="M498.5,348.5 L576.124613,348.5 C619.112192,348.5 646.037615,342.569031 661.340158,330.569623 C674.551408,320.210092 679.500251,305.518243 679.5,282.000016 L679.499984,280.500016 L682.499984,280.499984 L682.5,281.999984 C682.50026,306.348781 677.263326,321.895897 663.191331,332.930377 C647.239786,345.438696 619.722668,351.5 576.124613,351.5 L498.5,351.5 L498.5,359.5 L479.5,350 L498.5,340.5 L498.5,348.5 Z" fill="#292531" fill-rule="nonzero"></path>
+        <path id="Line" d="M134,112 L28.5,112 L27,112 L27,109 L28.5,109 L134,109 L134,101 L153,110.5 L134,120 L134,112 Z" fill="#292531" fill-rule="nonzero"></path>
+        <path id="Line" d="M47.0019119,337.717986 L257.001935,337.987796 L257.010286,331.487801 L257.012214,329.987802 L258.512212,329.989729 L274.512199,330.010286 L276.012198,330.012214 L276.010271,331.512212 L275.989714,347.512199 L275.987786,349.012198 L274.487788,349.010271 L258.487801,348.989714 L256.987802,348.987786 L256.989729,347.487788 L256.998081,340.987793 L46.9980575,340.717983 L46.9877791,348.717977 L28.0000004,339.193573 L47.0121904,329.717993 L47.0019119,337.717986 Z M259.998078,340.991648 L259.991654,345.991643 L272.991643,346.008346 L273.008346,333.008357 L260.008357,332.991654 L260.001933,337.99165 L260.003279,337.991652 L259.999425,340.991649 L259.998078,340.991648 Z" fill="#292531" fill-rule="nonzero"></path>
+        <path d="M27.5,221.5 L376.5,222" id="Line-2" stroke="#292531" stroke-width="3" stroke-linecap="square" stroke-dasharray="6"></path>
+        <path d="M445,222 L639.5,222" id="Line-2" stroke="#292531" stroke-width="3" stroke-linecap="square" stroke-dasharray="6"></path>
+        <text id="Operations" font-family="PhantomSans0.5-Semibold, Phantom Sans0.5" font-size="23" font-weight="500" fill="#000000">
+            <tspan x="28" y="208">Operations</tspan>
+        </text>
+        <text id="Results" font-family="PhantomSans0.5-Semibold, Phantom Sans0.5" font-size="23" font-weight="500" fill="#000000">
+            <tspan x="28" y="249">Results</tspan>
+        </text>
+        <text id="dedup" font-family="PhantomSans0.5-Medium, Phantom Sans0.5" font-size="23" font-weight="400" fill="#000000">
+            <tspan x="154.249" y="50">dedup</tspan>
+        </text>
+        <text id="cache" font-family="PhantomSans0.5-Medium, Phantom Sans0.5" font-size="23" font-weight="400" fill="#000000">
+            <tspan x="385.33" y="50">cache</tspan>
+        </text>
+        <text id="store" font-family="PhantomSans0.5-Regular, Phantom Sans0.5" font-size="23" font-weight="normal" fill="#FFFFFF">
+            <tspan x="385.0505" y="228">store</tspan>
+        </text>
+        <text id="api" font-family="PhantomSans0.5-Regular, Phantom Sans0.5" font-size="23" font-weight="normal" fill="#FFFFFF">
+            <tspan x="666.228" y="229">api</tspan>
+        </text>
+        <text id="fetch" font-family="PhantomSans0.5-Medium, Phantom Sans0.5" font-size="23" font-weight="400" fill="#000000">
+            <tspan x="654.3315" y="50">fetch</tspan>
+        </text>
+        <path d="M719.5,220.5 L753.5,220.5" id="Line-2" stroke="#292531" stroke-width="3" stroke-linecap="square" stroke-dasharray="6"></path>
+    </g>
+</svg>

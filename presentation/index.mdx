@@ -26,7 +26,7 @@ export default CodeSlide
 | :-----------: | :-------------------------: |
 | ![me](me.png) | ![suffering](suffering.png) |
 
-## **@ryan_gilb**
+**@ryan_gilb**
 
 ---
 
@@ -46,6 +46,8 @@ export default CodeSlide
 
 ## GraphQL client landscape
 
+export default CodeSlide
+
 <br />
 
 ![apollo-v-relay](apollo-v-relay.png)
@@ -61,7 +63,7 @@ export default CodeSlide
     "apollo-link-context": "^1.0.7",
     "apollo-link-http": "^1.3.3",
     "react-apollo": "^2.0.4",
-  }
+}
 ```
 
 ---
@@ -70,14 +72,12 @@ export default CodeSlide
 
 ```javascript
 function getApolloClient() {
-  const JWT = "jwt"
-
   const httpLink = new HttpLink({
-    uri: `http://${HOST}:8000/graphql`
+    uri: "/graphql"
   })
 
   const authLink = setContext(async (_, { headers }) => {
-    const token = await AsyncStorage.getItem(JWT)
+    const token = await AsyncStorage.getItem("jwt")
     return {
       headers: {
         ...headers,
@@ -194,6 +194,14 @@ export default CodeSlide
 
 ---
 
+export default WhiteSlide
+
+## Default Exchanges
+
+![default-exchanges](default-exchanges.svg)
+
+---
+
 ## Compact Bundle Size
 
 export default CodeSlide
@@ -214,14 +222,6 @@ export default CodeSlide
     </tr>
   </tbody>
 </table>
-
----
-
-export default WhiteSlide
-
-## Default Exchanges
-
-![default-exchanges](default-exchanges.svg)
 
 ---
 

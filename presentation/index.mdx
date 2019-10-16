@@ -4,17 +4,11 @@ import RegularComponent from "./regular-component"
 
 # Taking Flight with URQL
 
+export default CodeSlide
+
 <br />
 
 ![urqlbanner](urql-banner.gif)
-
----
-
-## Agenda
-
-- urql origin story
-- present-day urql
-- DEMO
 
 ---
 
@@ -22,26 +16,31 @@ import RegularComponent from "./regular-component"
 
 <br />
 
-We're hiring! formidable.com/careers/
-
 **@FormidableLabs**
 
 ---
 
+export default CodeSlide
 
-this is fine | i'm dying
-:-------------:|:-------------------------:
-![me](me.png)  |  ![suffering](suffering.png)
+| this is fine  |          i'm dying          |
+| :-----------: | :-------------------------: |
+| ![me](me.png) | ![suffering](suffering.png) |
 
-**@ryan_gilb**
-
+## **@ryan_gilb**
 
 ---
 
 ## what is urql?
 
-
 ![poll](poll.png)
+
+---
+
+## Agenda
+
+- **origin story (urql pre-v1)**
+- present day (urql v1.x.x)
+- DEMO
 
 ---
 
@@ -50,32 +49,6 @@ this is fine | i'm dying
 <br />
 
 ![apollo-v-relay](apollo-v-relay.png)
-
----
-
-export default CodeSlide
-
-```json
-"dependencies": {
-    "apollo-cache-inmemory": "^1.1.7",
-    "apollo-client": "^2.2.3",
-    "apollo-link-context": "^1.0.7",
-    "apollo-link-http": "^1.3.3",
-    "expo": "^25.0.0",
-    "graphql": "^0.12.0",
-    "graphql-tag": "^2.7.3",
-    "react": "16.2.0",
-    "react-apollo": "^2.0.4",
-    "react-native": "0.52.0",
-    "react-native-collapsible": "^0.10.0",
-    "react-native-datepicker": "^1.6.0",
-    "react-native-plaid-link": "^1.3.4",
-    "react-native-swipeout": "^2.3.3",
-    "react-native-user-avatar": "^1.0.3",
-    "react-navigation": "^1.4.0",
-    "watchman": "^1.0.0"
-  }
-```
 
 ---
 
@@ -127,7 +100,7 @@ function getApolloClient() {
 export default CodeSlide
 
 ```javascript
-yarn add urql
+                      yarn add urql
 ```
 
 ---
@@ -136,7 +109,7 @@ export default CodeSlide
 
 ```js
 // old urql v0.0.1
-'import { Provider, Client } from 'urql';'
+'import { Provider, Client } from 'urql';
 
 const client = new Client({
   url: '/graphql'
@@ -146,34 +119,68 @@ const client = new Client({
   <Provider client={client}>
     {/* ... */}
   </Provider>
-);'
+);
 ```
 
 ---
 
-## Evolution of URQL
+## Agenda
 
-![urql-v1](v1-release.png)
-
----
-
-## Compact Bundle Size
-
-<br />
-
-urql | apollo boost | apollo react hooks
-:-------------:|:----------:|:---------------:
-![urql-size](urql-size.png)  | ![apollo-boost-size](apollo-boost-size.png) | ![apollo-react-hooks-size](apollo-react-hooks-size.png)
+- origin story (urql pre-v1)
+- **present day (urql v1.x.x)**
+- DEMO
 
 ---
 
-## Features
+## urql v1
 
-![urql-features](features.png)
+export default CodeSlide
+
+<table
+  style={{ margin: "0 auto", marginTop: "48px", borderCollapse: "collapse" }}
+>
+  <tbody>
+    <tr style={{ textAlign: "left" }}>
+      <td style={{ paddingBottom: "16px" }}>✨ Released Feb 2019</td>
+    </tr>
+    <tr style={{ textAlign: "left" }}>
+      <td style={{ paddingBottom: "16px" }}>✅ React Hooks!</td>
+    </tr>
+    <tr style={{ textAlign: "left" }}>
+      <td style={{ paddingBottom: "16px" }}>
+        ✅ Custom client behavior via Exchanges!
+      </td>
+    </tr>
+    <tr style={{ textAlign: "left" }}>
+      <td>✅ Compact bundle size & compact API surface area!</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## React Hooks
+
+export default CodeSlide
+
+```js
+const [{ fetching, error, data }] = useQuery({
+  query: `
+    {
+      me {
+        id
+        username
+      }
+    }
+  `
+})
+```
 
 ---
 
 ## Programmable Core
+
+export default CodeSlide
 
 ![exchange](exchange.svg)
 
@@ -181,7 +188,32 @@ urql | apollo boost | apollo react hooks
 
 ## Programmable Core
 
+export default CodeSlide
+
 ![exchange-chain](exchange-chain.svg)
+
+---
+
+## Compact Bundle Size
+
+export default CodeSlide
+
+<br />
+
+<table style={{ margin: "0 auto", borderCollapse: "collapse" }}>
+  <thead>
+    <tr>
+      <th style={{ paddingRight: "48px" }}>urql</th>
+      <th>apollo (& hooks)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ paddingRight: "48px" }}>6.5kb min+gzip</td>
+      <td>30.1kb min+gzip</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
@@ -193,16 +225,45 @@ export default WhiteSlide
 
 ---
 
-## Exchanges
+## Useful resources
 
-![exchanges](exchanges.png)
+export default CodeSlide
 
----
+<br />
 
-## Graphcache
-
-![graphcache](graphcache.png)
+<table style={{ margin: "0 auto" }}>
+  <tbody>
+    <tr>
+      <td style={{ paddingBottom: "32px" }}>
+        Exchange basics:{" "}
+        <b>formidable.com/open-source/urql/docs/architecture/#exchanges</b>
+      </td>
+    </tr>
+    <tr>
+      <td style={{ paddingBottom: "32px" }}>
+        List of exchanges:{" "}
+        <b>formidable.com/open-source/urql/docs/exchanges/</b>
+      </td>
+    </tr>
+    <tr>
+      <td style={{ paddingBottom: "32px" }}>
+        Exchanges in-depth:{" "}
+        <b>
+          formidable.com/open-source/urql/docs/guides/#the-rules-of-exchanges
+        </b>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Graphcache:{" "}
+        <b>gist.github.com/kitten/056833ca422a683a6c37d49b15336192</b>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
 # DEMO!!!
+
+export default CodeSlide

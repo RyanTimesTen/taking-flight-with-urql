@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
+import { useMutation } from 'urql';
 
 import Heart from './Heart';
 
 const Thread = ({ id, title, likesNumber }) => {
   const [liked, setLiked] = useState(false);
 
-  // init likeThread mutation
+  const [, likeThread] = useMutation(`
+    mutation LikeThread($threadId: ID!) {
+      likeThread(threadId: $threadId) {
+        id
+      }
+    }
+  `);
 
-  // stub
   const handleLike = () => {
-    // invoke likeThread mutation with id
+    return likeThread({ threadId: id }).then(response => {
+      if (response.error) {
+        alert(response.error);
+        return response.error;
+      }
+    });
   };
 
   return (

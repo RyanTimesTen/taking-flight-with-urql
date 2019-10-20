@@ -1,23 +1,12 @@
 import React from 'react';
-import { useQuery } from 'urql';
 
 import Thread from './Thread';
 
 const Threads = () => {
-  const [{ fetching, error, data }] = useQuery({
-    query: `
-      {
-        threads(sortBy:LATEST) {
-          id
-          title
-          likesNumber
-        }
-      }
-    `,
-  });
+  // fetch threads
 
-  if (fetching) return <div>Fetching threads...</div>;
-  if (error) return <div>Error fetching threads :(</div>;
+  // stub
+  const data = { threads: [] };
 
   return (
     <div>

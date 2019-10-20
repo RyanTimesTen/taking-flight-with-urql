@@ -15,19 +15,21 @@ const Thread = ({ id, title, likesNumber }) => {
   `);
 
   const handleLike = () => {
-    likeThread({ threadId: id }).then(response => {
+    return likeThread({ threadId: id }).then(response => {
       if (response.error) {
         alert(response.error);
-        return;
+        return response.error;
       }
-      setLiked(true);
     });
   };
 
   return (
     <div className="Thread">
       <span>{title}</span>
-      <button className="Heart" onClick={handleLike}>
+      <button
+        className="Heart"
+        onClick={() => handleLike().then(res => res || setLiked(true))}
+      >
         <Heart liked={liked} />
       </button>
       <span className="LikesNumber">{likesNumber}</span>

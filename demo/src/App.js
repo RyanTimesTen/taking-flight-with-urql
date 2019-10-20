@@ -14,12 +14,11 @@ const App = () => {
         me {
           username
         }
-      } 
+      }
     `,
   });
 
   const handleAuth = token => {
-    localStorage.setItem('token', token);
     fetchMe({
       requestPolicy: 'network-only',
       fetchOptions: {
@@ -48,7 +47,6 @@ const App = () => {
               className="SignInButton"
               onClick={() => {
                 handleLogout();
-
                 window.location.reload();
               }}
             >
@@ -68,6 +66,7 @@ const App = () => {
         <AuthForm
           onSubmit={token => {
             setShowAuthForm(false);
+            localStorage.setItem('token', token);
             handleAuth(token);
             window.location.reload();
           }}

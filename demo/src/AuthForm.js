@@ -29,7 +29,7 @@ const AuthForm = ({ onSubmit }) => {
     authFn({ username, password }).then(response => {
       if (response.error) {
         alert(response.error);
-        return;
+        return response.error;
       }
       const key = isModeSignin ? 'signin' : 'signup';
       const { token } = response.data[key];

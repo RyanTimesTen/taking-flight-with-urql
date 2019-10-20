@@ -28,13 +28,11 @@ const App = () => {
         },
       },
     });
-    window.location.reload();
   };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     fetchMe({ requestPolicy: 'network-only' });
-    window.location.reload();
   };
 
   return (
@@ -46,7 +44,14 @@ const App = () => {
         {!fetching && !error && data.me ? (
           <>
             <div className="WelcomeMessage">Welcome, {data.me.username}</div>
-            <button className="SignInButton" onClick={handleLogout}>
+            <button
+              className="SignInButton"
+              onClick={() => {
+                handleLogout();
+
+                window.location.reload();
+              }}
+            >
               {!fetching && !error && data.me ? 'Log Out' : 'Sign In/Sign Up'}
             </button>
           </>
@@ -64,6 +69,7 @@ const App = () => {
           onSubmit={token => {
             setShowAuthForm(false);
             handleAuth(token);
+            window.location.reload();
           }}
         />
       ) : (

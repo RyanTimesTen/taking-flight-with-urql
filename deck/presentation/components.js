@@ -48,7 +48,7 @@ const _CodePane = ({ children, language }) => (
 _CodePane.propTypes = { code: PropTypes.string, language: PropTypes.string }
 
 export default {
-  a: Link,
+  a: ({ children }) => <Link>{children}</Link>,
   blockquote: _CombineBlockQuote,
   code: _CodePane,
   del: _S("strikethrough"),

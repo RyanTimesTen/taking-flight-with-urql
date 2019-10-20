@@ -1,0 +1,18 @@
+{
+  "user": {
+    "id": "1",
+    "username": "rick",
+    "likedPosts": [
+      {
+        "id": "4",
+        "title": "Big candy mountain",
+        "likes": 49
+      },
+      {
+        "id": "7",
+        "title": "Why candy corn is underrated",
+        "likes": 88
+      }
+    ]
+  }
+}

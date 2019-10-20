@@ -36,11 +36,75 @@ export default CodeSlide
 
 ---
 
+## what is urql?
+
+- **U**niversal **R**eact **Q**uery **L**ibrary
+- Lightweight open source GraphQL client
+- Created and maintained by Formidable
+
+---
+
 ## Agenda
 
 - **origin story (urql pre-v1)**
 - present day (urql v1.x.x)
 - DEMO
+
+---
+
+## graphql query
+
+export default CodeSlide
+
+```gql
+{
+  user(id: "1") {
+    id
+    username
+    email
+    likedPosts {
+      id
+      title
+      likes
+    }
+  }
+}
+```
+
+---
+
+## response
+
+export default CodeSlide
+
+```json
+{
+  "user": {
+    "id": "1",
+    "username": "rick",
+    "likedPosts": [
+      {
+        "id": "4",
+        "title": "Big candy mountain",
+        "likes": 49
+      },
+      {
+        "id": "7",
+        "title": "Why candy corn is underrated",
+        "likes": 88
+      }
+    ]
+  }
+}
+```
+
+## What does a GraphQL client do?
+
+export default CodeSlide
+
+- data fetching
+- caching
+- view layer integration
 
 ---
 
@@ -100,7 +164,7 @@ function getApolloClient() {
 export default CodeSlide
 
 ```javascript
-                      yarn add urql
+                         yarn add urql
 ```
 
 ---
@@ -108,15 +172,20 @@ export default CodeSlide
 export default CodeSlide
 
 ```js
-// old urql v0.0.1
-'import { Provider, Client } from 'urql';
+'import { Provider, createClient } from 'urql';
 
-const client = new Client({
-  url: '/graphql'
+const token = localStorage.getItem('token');
+const client = createClient({
+  url: '/graphql',
+  fetchOptions: {
+    headers: {
+      authorization: `Bearer ${token}`
+    }
+  }
 });
 
 'export const App = () => (
-  <Provider client={client}>
+  <Provider value={client}>
     {/* ... */}
   </Provider>
 );
@@ -211,13 +280,13 @@ export default CodeSlide
 <table style={{ margin: "0 auto", borderCollapse: "collapse" }}>
   <thead>
     <tr>
-      <th style={{ paddingRight: "48px" }}>urql</th>
+      <th style={{ paddingRight: "48px" }}>urql & graphcache</th>
       <th>apollo (& hooks)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style={{ paddingRight: "48px" }}>6.5kb min+gzip</td>
+      <td style={{ paddingRight: "48px" }}>14.5kb min+gzip</td>
       <td>30.1kb min+gzip</td>
     </tr>
   </tbody>
@@ -231,36 +300,19 @@ export default CodeSlide
 
 <br />
 
-<table style={{ margin: "0 auto" }}>
-  <tbody>
-    <tr>
-      <td style={{ paddingBottom: "32px" }}>
-        Exchange basics:{" "}
-        <b>formidable.com/open-source/urql/docs/architecture/#exchanges</b>
-      </td>
-    </tr>
-    <tr>
-      <td style={{ paddingBottom: "32px" }}>
-        List of exchanges:{" "}
-        <b>formidable.com/open-source/urql/docs/exchanges/</b>
-      </td>
-    </tr>
-    <tr>
-      <td style={{ paddingBottom: "32px" }}>
-        Exchanges in-depth:{" "}
-        <b>
-          formidable.com/open-source/urql/docs/guides/#the-rules-of-exchanges
-        </b>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Graphcache:{" "}
-        <b>gist.github.com/kitten/056833ca422a683a6c37d49b15336192</b>
-      </td>
-    </tr>
-  </tbody>
-</table>
+http://bit.ly/32v1x6o
+
+---
+
+## Why urql?
+
+<br />
+
+export default CodeSlide
+
+Simplicity
+
+Customizability
 
 ---
 

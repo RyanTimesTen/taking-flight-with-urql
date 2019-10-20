@@ -8,9 +8,11 @@ const Thread = ({ id, title, likesNumber }) => {
   // init likeThread mutation
 
   // stub
-  const handleLike = () => {
-    // invoke likeThread mutation with id
-  };
+  const handleLike = () => new Promise(() => {});
+
+  // const handleLike = () => {
+  //   // invoke likeThread mutation with id
+  // };
 
   return (
     <div className="Thread">

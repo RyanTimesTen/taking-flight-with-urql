@@ -7,6 +7,8 @@ import './App.css';
 const App = () => {
   const [showAuthForm, setShowAuthForm] = useState(false);
 
+  // write me query
+
   // stub
   const fetching = true;
   const error = undefined;

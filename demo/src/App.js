@@ -7,6 +7,7 @@ import './App.css';
 
 const App = () => {
   const [showAuthForm, setShowAuthForm] = useState(false);
+
   const [{ fetching, error, data }, fetchMe] = useQuery({
     query: `
       {
@@ -18,7 +19,6 @@ const App = () => {
   });
 
   const handleAuth = token => {
-    setShowAuthForm(false);
     localStorage.setItem('token', token);
     fetchMe({
       requestPolicy: 'network-only',
@@ -28,11 +28,13 @@ const App = () => {
         },
       },
     });
+    window.location.reload();
   };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     fetchMe({ requestPolicy: 'network-only' });
+    window.location.reload();
   };
 
   return (
@@ -57,7 +59,16 @@ const App = () => {
           </button>
         )}
       </header>
-      {showAuthForm ? <AuthForm onSubmit={handleAuth} /> : <Threads />}
+      {showAuthForm ? (
+        <AuthForm
+          onSubmit={token => {
+            setShowAuthForm(false);
+            handleAuth(token);
+          }}
+        />
+      ) : (
+        <Threads />
+      )}
     </div>
   );
 };

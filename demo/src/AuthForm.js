@@ -1,14 +1,26 @@
 import React, { useState } from 'react';
+import { useMutation } from 'urql';
 
 const AuthForm = ({ onSubmit }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isModeSignin, setIsModeSignin] = useState(true);
 
-  // stub
-  const signIn = () => new Promise(() => {});
-  // stub
-  const signUp = () => new Promise(() => {});
+  const [, signIn] = useMutation(`
+    mutation Signin($username: String!, $password: String!) {
+      signin(username: $username, password: $password) {
+        token
+      }
+    }   
+  `);
+
+  const [, signUp] = useMutation(`
+    mutation Signup($username: String!, $password: String!) {
+      signup(username: $username, password: $password) {
+        token
+      }
+    }
+  `);
 
   const handleFormSubmit = e => {
     e.preventDefault();

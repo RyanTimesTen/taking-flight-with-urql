@@ -47,7 +47,6 @@ const App = () => {
               className="SignInButton"
               onClick={() => {
                 handleLogout();
-                window.location.reload();
               }}
             >
               {!fetching && !error && data.me ? 'Log Out' : 'Sign In/Sign Up'}
@@ -68,7 +67,6 @@ const App = () => {
             setShowAuthForm(false);
             localStorage.setItem('token', token);
             handleAuth(token);
-            window.location.reload();
           }}
         />
       ) : (

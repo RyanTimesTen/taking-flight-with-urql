@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useQuery } from 'urql';
 
 import AuthForm from './AuthForm';
 import Threads from './Threads';
@@ -7,19 +8,29 @@ import './App.css';
 const App = () => {
   const [showAuthForm, setShowAuthForm] = useState(false);
 
-  // write me query
-
-  // stub
-  const fetching = true;
-  const error = undefined;
-  const data = undefined;
+  const [{ fetching, error, data }, fetchCurrentUser] = useQuery({
+    query: `
+      {
+        me {
+          username
+        }
+      }
+    `,
+  });
 
   const handleAuth = token => {
-    // refetch me via network-only query with token
+    fetchCurrentUser({
+      requestPolicy: 'network-only',
+      fetchOptions: {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      },
+    });
   };
 
   const handleLogout = () => {
-    // refetch me via network-only query
+    fetchCurrentUser({ requestPolicy: 'network-only' });
   };
 
   return (
@@ -34,9 +45,8 @@ const App = () => {
             <button
               className="SignInButton"
               onClick={() => {
-                handleLogout();
                 localStorage.removeItem('token');
-                window.location.reload();
+                handleLogout();
               }}
             >
               {!fetching && !error && data.me ? 'Log Out' : 'Sign In/Sign Up'}
@@ -57,7 +67,6 @@ const App = () => {
             setShowAuthForm(false);
             localStorage.setItem('token', token);
             handleAuth(token);
-            window.location.reload();
           }}
         />
       ) : (

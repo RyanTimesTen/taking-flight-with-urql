@@ -86,7 +86,7 @@
   font-size: 1.25rem;
 }
 
-.SignInButton {
+.AuthButton {
   background: none;
   border: none;
   cursor: pointer;
@@ -99,7 +99,7 @@
   font-size: 1.25rem;
 }
 
-.SignInButton:hover {
+.AuthButton:hover {
   text-decoration: underline;
 }
 

@@ -8,7 +8,7 @@ import './App.css';
 const App = () => {
   const [showAuthForm, setShowAuthForm] = useState(false);
 
-  const [{ fetching, error, data }, fetchCurrentUser] = useQuery({
+  const [{ fetching, error, data }] = useQuery({
     query: `
       {
         me {
@@ -18,19 +18,9 @@ const App = () => {
     `,
   });
 
-  const handleAuth = token => {
-    fetchCurrentUser({
-      requestPolicy: 'network-only',
-      fetchOptions: {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      },
-    });
-  };
-
   const handleLogout = () => {
-    fetchCurrentUser({ requestPolicy: 'network-only' });
+    localStorage.removeItem('token');
+    window.location.reload();
   };
 
   return (
@@ -42,36 +32,17 @@ const App = () => {
         {!fetching && !error && data.me ? (
           <>
             <div className="WelcomeMessage">Welcome, {data.me.username}</div>
-            <button
-              className="SignInButton"
-              onClick={() => {
-                localStorage.removeItem('token');
-                handleLogout();
-              }}
-            >
+            <button name="logout" className="AuthButton" onClick={handleLogout}>
               {!fetching && !error && data.me ? 'Log Out' : 'Sign In/Sign Up'}
             </button>
           </>
         ) : (
-          <button
-            className="SignInButton"
-            onClick={() => setShowAuthForm(true)}
-          >
+          <button className="AuthButton" onClick={() => setShowAuthForm(true)}>
             Sign In/Sign Up
           </button>
         )}
       </header>
-      {showAuthForm ? (
-        <AuthForm
-          onSubmit={token => {
-            setShowAuthForm(false);
-            localStorage.setItem('token', token);
-            handleAuth(token);
-          }}
-        />
-      ) : (
-        <Threads />
-      )}
+      {showAuthForm ? <AuthForm /> : <Threads />}
     </div>
   );
 };

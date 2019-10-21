@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from 'urql';
 
-const AuthForm = ({ onSubmit }) => {
+const AuthForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isModeSignin, setIsModeSignin] = useState(true);
@@ -33,7 +33,8 @@ const AuthForm = ({ onSubmit }) => {
       }
       const key = isModeSignin ? 'signin' : 'signup';
       const { token } = response.data[key];
-      onSubmit(token);
+      localStorage.setItem('token', token);
+      window.location.reload();
     });
   };
 

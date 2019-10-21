@@ -30,13 +30,15 @@ export default CodeSlide
 
 ---
 
-## what is urql?
-
 ![poll](poll.png)
 
 ---
 
 ## what is urql?
+
+<br />
+
+export default CodeSlide
 
 - **U**niversal **R**eact **Q**uery **L**ibrary
 - Lightweight open source GraphQL client
@@ -44,11 +46,41 @@ export default CodeSlide
 
 ---
 
-## Agenda
+## urql features
 
-- **origin story (urql pre-v1)**
-- present day (urql v1.x.x)
-- DEMO
+export default CodeSlide
+
+<table
+  style={{ margin: "0 auto", marginTop: "48px", borderCollapse: "collapse" }}
+>
+  <tbody>
+    <tr style={{ textAlign: "left" }}>
+      <td style={{ paddingBottom: "16px" }}>✅ React Hooks</td>
+    </tr>
+    <tr style={{ textAlign: "left" }}>
+      <td style={{ paddingBottom: "16px" }}>✅ Simple cache</td>
+    </tr>
+    <tr style={{ textAlign: "left" }}>
+      <td style={{ paddingBottom: "16px" }}>✅ Customizable behavior</td>
+    </tr>
+    <tr style={{ textAlign: "left" }}>
+      <td>✅ Compact bundle size & API</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Why urql?
+
+<br />
+
+export default CodeSlide
+
+- Simplicity
+- Customizability
+- Small bundle size (6.5kb min+gzip) & API
+- Lower barrier to entry to GraphQL
 
 ---
 
@@ -98,23 +130,26 @@ export default CodeSlide
 }
 ```
 
+---
+
 ## What does a GraphQL client do?
 
 export default CodeSlide
 
-- data fetching
-- caching
-- view layer integration
+- handles data fetching
+- performs caching
+- integrated into our view layer
+- other things
 
 ---
 
-## GraphQL client landscape
-
 export default CodeSlide
 
-<br />
+![apollo](apollo.png)
 
-![apollo-v-relay](apollo-v-relay.png)
+---
+
+## urql origin story
 
 ---
 
@@ -127,6 +162,16 @@ export default CodeSlide
     "apollo-link-context": "^1.0.7",
     "apollo-link-http": "^1.3.3",
     "react-apollo": "^2.0.4",
+}
+```
+
+---
+
+export default CodeSlide
+
+```json
+"dependencies": {
+    "urql": "^1.6.1"
 }
 ```
 
@@ -163,65 +208,47 @@ function getApolloClient() {
 
 export default CodeSlide
 
-```javascript
-                         yarn add urql
-```
-
----
-
-export default CodeSlide
-
 ```js
-'import { Provider, createClient } from 'urql';
-
-const token = localStorage.getItem('token');
+const token = localStorage.getItem("token")
 const client = createClient({
-  url: '/graphql',
+  url: "/graphql",
   fetchOptions: {
     headers: {
       authorization: `Bearer ${token}`
     }
   }
-});
+})
 
-'export const App = () => (
-  <Provider value={client}>
-    {/* ... */}
-  </Provider>
-);
+const App = () => {
+  return <Provider value={client}>{/* ... */}</Provider>
+}
 ```
 
 ---
 
-## Agenda
-
-- origin story (urql pre-v1)
-- **present day (urql v1.x.x)**
-- DEMO
+## present day urql
 
 ---
 
-## urql v1
+## Compact Bundle Size
 
 export default CodeSlide
 
-<table
-  style={{ margin: "0 auto", marginTop: "48px", borderCollapse: "collapse" }}
->
+<br />
+
+<table style={{ margin: "0 auto", borderCollapse: "collapse" }}>
+  <thead>
+    <tr>
+      <th style={{ paddingRight: "48px" }}>urql</th>
+      <th style={{ paddingRight: "48px" }}>urql & graphcache</th>
+      <th>apollo boost & @apollo/react-hooks</th>
+    </tr>
+  </thead>
   <tbody>
-    <tr style={{ textAlign: "left" }}>
-      <td style={{ paddingBottom: "16px" }}>✨ Released Feb 2019</td>
-    </tr>
-    <tr style={{ textAlign: "left" }}>
-      <td style={{ paddingBottom: "16px" }}>✅ React Hooks!</td>
-    </tr>
-    <tr style={{ textAlign: "left" }}>
-      <td style={{ paddingBottom: "16px" }}>
-        ✅ Custom client behavior via Exchanges!
-      </td>
-    </tr>
-    <tr style={{ textAlign: "left" }}>
-      <td>✅ Compact bundle size & compact API surface area!</td>
+    <tr>
+      <td style={{ paddingRight: "48px" }}>6.5kb min+gzip</td>
+      <td style={{ paddingRight: "48px" }}>14.5kb min+gzip</td>
+      <td>30.1kb min+gzip</td>
     </tr>
   </tbody>
 </table>
@@ -233,7 +260,7 @@ export default CodeSlide
 export default CodeSlide
 
 ```js
-const [{ fetching, error, data }] = useQuery({
+const [response] = useQuery({
   query: `
     {
       me {
@@ -243,6 +270,11 @@ const [{ fetching, error, data }] = useQuery({
     }
   `
 })
+// {
+//  fetching: false,
+//  error: false,
+//  data: { me: { id: "1", username: "fez"} }
+// }
 ```
 
 ---
@@ -271,26 +303,9 @@ export default WhiteSlide
 
 ---
 
-## Compact Bundle Size
+# DEMO!!!
 
 export default CodeSlide
-
-<br />
-
-<table style={{ margin: "0 auto", borderCollapse: "collapse" }}>
-  <thead>
-    <tr>
-      <th style={{ paddingRight: "48px" }}>urql & graphcache</th>
-      <th>apollo (& hooks)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style={{ paddingRight: "48px" }}>14.5kb min+gzip</td>
-      <td>30.1kb min+gzip</td>
-    </tr>
-  </tbody>
-</table>
 
 ---
 
@@ -301,21 +316,3 @@ export default CodeSlide
 <br />
 
 http://bit.ly/32v1x6o
-
----
-
-## Why urql?
-
-<br />
-
-export default CodeSlide
-
-Simplicity
-
-Customizability
-
----
-
-# DEMO!!!
-
-export default CodeSlide

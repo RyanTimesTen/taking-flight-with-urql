@@ -5,17 +5,13 @@ import Thread from './Thread';
 
 const Threads = () => {
   // 1. write query to fetch threads
-  const [response] = useQuery({
-    query: `
-      {
-        threads(sortBy: LATEST) {
-          id
-          title
-          likesNumber
-        }
-      } 
-    `,
-  });
+
+  // this is just a stub so the app doesn't break
+  const response = {
+    fetching: undefined,
+    error: undefined,
+    data: { threads: [] },
+  };
 
   if (response.fetching) return <div>Loading threads...</div>;
   if (response.error) return <div>Error loading threads :(</div>;

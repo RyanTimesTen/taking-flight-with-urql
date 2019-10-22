@@ -5,23 +5,21 @@ import Heart from './Heart';
 
 const Thread = ({ id, title, likesNumber }) => {
   // 1. write likeThread mutation
-  const [response, likeThread] = useMutation(`
-    mutation LikeThread($threadId: ID!) {
-    likeThread(threadId: $threadId) {
-      id
-    }
-  }
-  `);
+
+  // this is just a stub so the app doesn't break
+  const response = {
+    fetching: undefined,
+    error: undefined,
+    data: undefined,
+  };
 
   // 2. handle error from response
   if (response.error) {
     alert(response.error);
   }
 
-  const handleHeartClick = () => {
-    // 3. fire off the likeThread mutation
-    likeThread({ threadId: id });
-  };
+  // 3. fire off the likeThread mutation
+  const handleHeartClick = () => {};
 
   return (
     <div className="Thread">

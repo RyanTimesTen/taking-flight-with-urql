@@ -41,46 +41,21 @@ export default CodeSlide
 export default CodeSlide
 
 - **U**niversal **R**eact **Q**uery **L**ibrary
+- Enables developers to use GraphQL on the frontend
 - Lightweight open source GraphQL client
 - Created and maintained by Formidable
 
 ---
 
-## urql features
-
-export default CodeSlide
-
-<table
-  style={{ margin: "0 auto", marginTop: "48px", borderCollapse: "collapse" }}
->
-  <tbody>
-    <tr style={{ textAlign: "left" }}>
-      <td style={{ paddingBottom: "16px" }}>✅ React Hooks</td>
-    </tr>
-    <tr style={{ textAlign: "left" }}>
-      <td style={{ paddingBottom: "16px" }}>✅ Simple cache</td>
-    </tr>
-    <tr style={{ textAlign: "left" }}>
-      <td style={{ paddingBottom: "16px" }}>✅ Customizable behavior</td>
-    </tr>
-    <tr style={{ textAlign: "left" }}>
-      <td>✅ Compact bundle size & API</td>
-    </tr>
-  </tbody>
-</table>
-
----
-
-## Why urql?
+## what is graphql?
 
 <br />
 
 export default CodeSlide
 
-- Simplicity
-- Customizability
-- Small bundle size (6.5kb min+gzip) & API
-- Lower barrier to entry to GraphQL
+- alternative to REST
+- efficient, easy to use
+- protocol for declarative data fetching
 
 ---
 
@@ -132,14 +107,53 @@ export default CodeSlide
 
 ---
 
-## What does a GraphQL client do?
+## What is a GraphQL client?
 
 export default CodeSlide
 
-- handles data fetching
-- performs caching
-- integrated into our view layer
-- other things
+- abstraction over networking
+- usually performs caching
+- integrates into our view layer
+
+---
+
+## Why urql?
+
+<br />
+
+export default CodeSlide
+
+- Simple to set up and use
+- Customizable
+- Small bundle size (6.5kb min+gzip) & API
+- Lower barrier to entry to GraphQL
+
+---
+
+## urql features
+
+export default CodeSlide
+
+<table
+  style={{ margin: "0 auto", marginTop: "48px", borderCollapse: "collapse" }}
+>
+  <tbody>
+    <tr style={{ textAlign: "left" }}>
+      <td style={{ paddingBottom: "16px" }}>✅ React Hooks compatability</td>
+    </tr>
+    <tr style={{ textAlign: "left" }}>
+      <td style={{ paddingBottom: "16px" }}>✅ Simple default cache</td>
+    </tr>
+    <tr style={{ textAlign: "left" }}>
+      <td style={{ paddingBottom: "16px" }}>
+        ✅ Customizable behavior via Exchanges
+      </td>
+    </tr>
+    <tr style={{ textAlign: "left" }}>
+      <td>✅ Compact bundle size & API</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
@@ -151,7 +165,11 @@ export default CodeSlide
 
 ## urql origin story
 
+![origin-gif](https://media3.giphy.com/media/l2JdT4plpRnrpR1tK/giphy-downsized.gif?cid=6104955e71518c18cf53c98a9c3e16d146900b8b1956c3c2&rid=giphy-downsized.gif)
+
 ---
+
+sample package.json for an app using Apollo
 
 export default CodeSlide
 
@@ -167,6 +185,8 @@ export default CodeSlide
 
 ---
 
+sample package.json for an app using urql
+
 export default CodeSlide
 
 ```json
@@ -179,49 +199,47 @@ export default CodeSlide
 
 export default CodeSlide
 
+sample client setup for an app using Apollo
+
 ```javascript
-function getApolloClient() {
-  const httpLink = new HttpLink({
-    uri: "/graphql"
-  })
+const httpLink = new HttpLink({
+  uri: "/graphql"
+})
 
-  const authLink = setContext(async (_, { headers }) => {
-    const token = await AsyncStorage.getItem("jwt")
-    return {
-      headers: {
-        ...headers,
-        authorization: token ? `Bearer ${token}` : ""
-      }
-    }
-  })
-
-  const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
-  })
-
-  return client
-}
-```
-
----
-
-export default CodeSlide
-
-```js
-const token = localStorage.getItem("token")
-const client = createClient({
-  url: "/graphql",
-  fetchOptions: {
+const authLink = setContext(async (_, { headers }) => {
+  const token = localStorage.getItem("token")
+  return {
     headers: {
-      authorization: `Bearer ${token}`
+      ...headers,
+      authorization: token ? `Bearer ${token}` : ""
     }
   }
 })
 
-const App = () => {
-  return <Provider value={client}>{/* ... */}</Provider>
-}
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+})
+```
+
+---
+
+sample client set up for an app using urql
+
+export default CodeSlide
+
+```js
+const client = createClient({
+  url: "/graphql",
+  fetchOptions: () => {
+    const token = localStorage.getItem("token")
+    return {
+      headers: {
+        authorization: token ? `Bearer ${token}` : ""
+      }
+    }
+  }
+})
 ```
 
 ---
@@ -315,11 +333,11 @@ export default CodeSlide
 
 ![twitter](twitter.png)
 
-@\_philpl
+Phil Plückthun: @\_philpl
 
-@JoviDeC
+Jovi De Croock: @JoviDeC
 
-@ryan_gilb
+Ryan Gilbert: @ryan_gilb
 
 <br />
 

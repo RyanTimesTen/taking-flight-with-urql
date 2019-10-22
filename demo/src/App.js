@@ -8,7 +8,7 @@ import './App.css';
 const App = () => {
   const [showAuthForm, setShowAuthForm] = useState(false);
 
-  const [{ fetching, error, data }] = useQuery({
+  const [{ fetching, error, data }, fetchCurrentUser] = useQuery({
     query: `
       {
         me {
@@ -20,14 +20,14 @@ const App = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    window.location.reload();
+    fetchCurrentUser({ requestPolicy: 'network-only' });
   };
 
   return (
     <div className="App">
       <header className="Header">
         <button className="Home" onClick={() => setShowAuthForm(false)}>
-          MyMessages
+          AmazingApp
         </button>
         {!fetching && !error && data.me ? (
           <>
@@ -42,7 +42,23 @@ const App = () => {
           </button>
         )}
       </header>
-      {showAuthForm ? <AuthForm /> : <Threads />}
+      {showAuthForm ? (
+        <AuthForm
+          onSubmit={token => {
+            fetchCurrentUser({
+              requestPolicy: 'network-only',
+              fetchOptions: {
+                headers: {
+                  authorization: `Bearer ${token}`,
+                },
+              },
+            });
+            setShowAuthForm(false);
+          }}
+        />
+      ) : (
+        <Threads />
+      )}
     </div>
   );
 };

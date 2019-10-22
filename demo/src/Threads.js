@@ -4,7 +4,7 @@ import { useQuery } from 'urql';
 import Thread from './Thread';
 
 const Threads = () => {
-  // fetch threads
+  // 1. write query to fetch threads
   const [response] = useQuery({
     query: `
       {
@@ -17,13 +17,14 @@ const Threads = () => {
     `,
   });
 
-  if (response.fetching) return <div>Fetching threads...</div>;
-  if (response.error) return <div>Error fetching threads :(</div>;
+  if (response.fetching) return <div>Loading threads...</div>;
+  if (response.error) return <div>Error loading threads :(</div>;
 
+  // 2. render threads from query response
   return (
     <div>
-      {response.data.threads.map(t => (
-        <Thread key={t.id} {...t} />
+      {response.data.threads.map(thread => (
+        <Thread key={thread.id} {...thread} />
       ))}
     </div>
   );

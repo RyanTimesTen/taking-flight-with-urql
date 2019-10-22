@@ -28,13 +28,22 @@ export default CodeSlide
 | :-----------: | :-------------------------: |
 | ![me](me.png) | ![suffering](suffering.png) |
 
-**@ryan_gilb**
-
 ---
 
 export default CodeSlide
 
 ![poll](poll.png)
+
+<Notes>
+  <p>
+    Given these results, I've decided to give a broad overview of urql and
+    graphql, with a demo to showcase urql at the end
+  </p>
+  <p>
+    As it turns out, many people are unfamiliar with urql, so let's go ahead and
+    answer that question first
+  </p>
+</Notes>
 
 ---
 
@@ -49,6 +58,15 @@ export default CodeSlide
 - Lightweight open source GraphQL client
 - Created and maintained by Formidable
 
+<Notes>
+  <p>urql is an acronym, but that still doesn't tell us much</p>
+  <p>it's a tool, distrubited as a package on npm</p>
+  <p>
+    GraphQL is mentioned twice on this slide, and we are at a graphql meetup,
+    but for those of us who may be unfamiliar, what exactly is graphql?
+  </p>
+</Notes>
+
 ---
 
 ## what is graphql?
@@ -57,9 +75,16 @@ export default CodeSlide
 
 export default CodeSlide
 
+- protocol for declarative data fetching
 - alternative to REST
 - efficient, easy to use
-- protocol for declarative data fetching
+
+<Notes>
+  <p>
+    graphql is a new way of efficiently and easily requesting data from a server
+  </p>
+  <p>i want to highlight the declarative data fetching piece</p>
+</Notes>
 
 ---
 
@@ -81,6 +106,11 @@ export default CodeSlide
   }
 }
 ```
+
+<Notes>
+  <p>this is a query for data from a hypothetical server</p>
+  <p>we're telling the server what pieces of data we want</p>
+</Notes>
 
 ---
 
@@ -109,15 +139,42 @@ export default CodeSlide
 }
 ```
 
+<Notes>
+  <p>
+    the server responds with just what we asked for. nothing more, nothing less
+  </p>
+  <p>
+    graphql is implemented over http and can be used with built-in networking
+    functions like fetch, so what need does a graphql client serve?
+  </p>
+</Notes>
+
 ---
 
-## What is a GraphQL client?
+## Why use a GraphQL client?
 
 export default CodeSlide
 
+- enables powerful developer tooling
 - abstraction over networking
 - usually performs caching
 - integrates into our view layer
+
+<Notes>
+  <p>
+    not to say a graphql client is required, it may just offer us some benefits
+  </p>
+  <p>
+    on my previous project, we used urql and that was great, but on my current
+    project we're not using a graphql client at all, and that's because we're
+    optimizing for bundle size and we don't need some of the features like a
+    cache, so we implement graphql requests with fetch by hand
+  </p>
+  <p>
+    we've talked about graphql and graphql clients, but why should we consider
+    urql specifically?
+  </p>
+</Notes>
 
 ---
 
@@ -131,6 +188,18 @@ export default CodeSlide
 - Customizable
 - Small bundle size (6.5kb min+gzip) & API
 - Lower barrier to entry to GraphQL
+
+<Notes>
+  <p>
+    really easy to get up and running with a fully functioning graphql client
+  </p>
+  <p>
+    there are tons of use cases for graphql clients, and tons of specific
+    features that we may want out of them. we've been urql to be flexible so
+    that when we need more robust functionality, we can implement this
+    functionality ourselves
+  </p>
+</Notes>
 
 ---
 
@@ -165,6 +234,14 @@ export default CodeSlide
 
 ![if-i-fits-i-sits](https://media3.giphy.com/media/v6aOjy0Qo1fIA/giphy-downsized.gif?cid=6104955eb26de4f9beffed04261e1102bb231df2f4dbb586&rid=giphy-downsized.gif)
 
+<Notes>
+  <p>That was a lot, so here's a cute gif of a cat sitting in a bowl</p>
+  <p>
+    When it comes to graphql clients, there is an elephant in the room, and it
+    goes by the name apollo
+  </p>
+</Notes>
+
 ---
 
 export default CodeSlide
@@ -184,6 +261,13 @@ export default CodeSlide
 ## urql origin story
 
 ![origin-gif](https://media3.giphy.com/media/l2JdT4plpRnrpR1tK/giphy-downsized.gif?cid=6104955e71518c18cf53c98a9c3e16d146900b8b1956c3c2&rid=giphy-downsized.gif)
+
+<Notes>
+  <p>
+    I'd like to take a little bit of time to discuss the motivations behind
+    urql's creation
+  </p>
+</Notes>
 
 ---
 
@@ -262,6 +346,19 @@ const client = createClient({
 
 ---
 
+## Apollo Improvements
+
+export default CodeSlide
+
+- relatively new `apollo-boost` package wraps core Apollo client
+- still need to download integration package (`@apollo/react-hooks`)
+
+<Notes>
+  <p>In summary, urql was created out of a need for a simpler graphql client</p>
+</Notes>
+
+---
+
 ## present day urql
 
 export default CodeSlide
@@ -293,6 +390,23 @@ export default CodeSlide
   </tbody>
 </table>
 
+<Notes>
+  <p>
+    We've kept up the bundle size nice and small and have created an Exchange
+    called graphcache
+  </p>
+  <p>
+    Without getting too deep into it, graphcache is a normalised cache
+    implementation, which is essentially a more powerful caching mechanism that
+    enables some nice features out of the box
+  </p>
+  <p>
+    Apollo's default cache is a normalised cache, and that used to be a big leg
+    up over urql. With graphcache and urqls new flexibility, we can now
+    customize urql with a normalised cache if we need to
+  </p>
+</Notes>
+
 ---
 
 ## React Hooks
@@ -317,6 +431,13 @@ const [response] = useQuery({
 // }
 ```
 
+<Notes>
+  <p>
+    We've kept up to date with advances in React, now supporting usage with
+    React Hooks, further simplifying urql
+  </p>
+</Notes>
+
 ---
 
 ## Programmable Core
@@ -324,6 +445,18 @@ const [response] = useQuery({
 export default CodeSlide
 
 ![exchange](exchange.svg)
+
+<Notes>
+  <p>
+    This next feature is perhaps the most important one, it's what I like to
+    call urql's programmable core
+  </p>
+  <p>What this diagram visualizes is urql's concept of an Exchange</p>
+  <p>
+    Exchanges are operation handlers. They allow us to process streams of
+    graphql operations and operation results
+  </p>
+</Notes>
 
 ---
 
@@ -333,6 +466,17 @@ export default CodeSlide
 
 ![exchange-chain](exchange-chain.svg)
 
+<Notes>
+  <p>
+    Exchanges are modular and can be linked together to form an operation
+    pipeline
+  </p>
+  <p>
+    Most of urqls core logic lives in a handful of default exchanges, and we can
+    control what exchanges urql uses
+  </p>
+</Notes>
+
 ---
 
 export default WhiteSlide
@@ -341,6 +485,14 @@ export default WhiteSlide
 
 ![default-exchanges](default-exchanges.svg)
 
+<Notes>
+  <p>
+    To summarize, urql was recently rewritten to allow flexibility in how it
+    behaves, while maintaining its small bundle size and modern API
+  </p>
+  <p>Now, let's see it in action</p>
+</Notes>
+
 ---
 
 # DEMO!!!
@@ -348,6 +500,12 @@ export default WhiteSlide
 ![cat](https://media0.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy-downsized.gif?cid=6104955e6f01d2c587206fe665a85f47479dcb2c32772fd5&rid=giphy-downsized.gif)
 
 export default CodeSlide
+
+---
+
+export default CodeSlide
+
+https://formidable.com/open-source/urql/
 
 ---
 
